@@ -8,17 +8,11 @@ class Solution:
         stack = [source]
         while stack:
             x = stack.pop()
+            if x == destination :
+                return True
             for c in mapp[x]:
                 if c not in s:
                     stack.append(c)
                     s.add(c)
         
-        if destination in s:
-            return True
         return False
-
-        
-      
-
-            
-        
