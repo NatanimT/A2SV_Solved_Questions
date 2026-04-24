@@ -4,15 +4,15 @@ class Solution:
         for u, v in edges:
             mapp[u].append(v)
             mapp[v].append(u)
-        s = set() 
-        def dfs(v, vis):
-
-            vis.add(v)
-            for i in mapp[v]:
-                if i in vis:
-                    continue
-                dfs(i, vis)
-        dfs(source,s)
+        s = set([source]) 
+        stack = [source]
+        while stack:
+            x = stack.pop()
+            for c in mapp[x]:
+                if c not in s:
+                    stack.append(c)
+                    s.add(c)
+        
         if destination in s:
             return True
         return False
